@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title th:text="${titulo}"></title>
+</head>
+<body>
+	<h1 th:text="${titulo}"></h1>
+
+	<div th:if="${drivers.isEmpty()}">No existe ningún piloto registrados</div>
+	<table th:if="${!drivers.isEmpty()}">
+		<thead>
+			<tr>
+				<th>Picture</th>
+				<th>Ranking</th>
+				<th>Name</th>
+				<th>Team</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="drivers, i: ${drivers}">
+				<td th:text=${drivers.picture}></td>
+				<td th:text=${i.index+1}></td>
+				<td th:text=${drivers.name}></td>
+				<td th:text=${drivers.team}></td>
+			</tr>
+
+
+		</tbody>
+	</table>
+
+</body>
+</html>
